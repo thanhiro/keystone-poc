@@ -1,6 +1,5 @@
 var keystone = require('keystone');
 keystone.init({
-
   'name': 'My Project',
 
   'favicon': 'public/favicon.ico',
@@ -16,7 +15,9 @@ keystone.init({
   'session': true,
   'auth': true,
   'user model': 'User',
-  'cookie secret': '(your secret here)'
+  'cookie secret': '(your secret here)',
+
+  'wysiwyg images': true,
 
 });
 
