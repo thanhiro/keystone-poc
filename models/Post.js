@@ -1,5 +1,6 @@
 const keystone = require('keystone'),
   Types = keystone.Field.Types;
+const mongoosastic = require('mongoosastic');
 
 const myStorage = new keystone.Storage({
     adapter: keystone.Storage.Adapters.FS,
@@ -29,4 +30,7 @@ Post.add({
 });
 
 Post.defaultColumns = 'title, state|20%, author, publishedAt|15%'
+
+Post.schema.plugin(mongoosastic);
+
 Post.register();
