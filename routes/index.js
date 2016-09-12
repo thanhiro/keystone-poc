@@ -21,8 +21,14 @@ keystone.set('500', (err, req, res, next) => {
 
 // Load Routes
 const routes = {
-  views: importRoutes('./views')
+  views: importRoutes('./views'),
+  api: {
+    images: require('./api/images')
+  }
 };
 
 // Bind Routes
-exports = module.exports = app => app.get('/', routes.views.index);
+exports = module.exports = app => {
+  app.get('/api/images', routes.api.images);
+  app.get('/', routes.views.index);
+};
